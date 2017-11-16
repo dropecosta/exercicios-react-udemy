@@ -6,9 +6,12 @@ module.exports = {
         path: __dirname + '/public',
         filename: './bundle.js'
     },
-    devserver: {
+    devServer: {
         port: 8080,
         contentBase: './public',
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [{
@@ -16,7 +19,8 @@ module.exports = {
             loader: 'babel-loader',
             exclude: /node_modules/,
             query: {
-                presets: ['es2015', 'react']
+                presets: ['es2015', 'react'],
+                plugins: ['transform-object-rest-spread']
             }
         }]
     }
